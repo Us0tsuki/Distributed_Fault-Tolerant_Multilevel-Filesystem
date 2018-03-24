@@ -4,6 +4,7 @@ The *python FUSE library is used to implement this custom filesystem
 This is a client-server based filesystem that uses one metadata server and multiple data servers to balance the workload given that the bandwidth for each server is limited. The data is stored distributedly on multiple data servers with fault-tolerance and redundancy mechanisms.
 
 Design assumptions and requirements are:
+
 • There are multiple dataservers and a single metaserver. Metaserver is assumed to be very reliable and robust which never fails.
 
 • The data blocks of the file are stored in the round-robin fashion as mentioned above but, there are two redundant copies of the same block are stored in the following two dataservers.
@@ -31,6 +32,7 @@ Dealing with writes while a server is unavailable
 • You should test your system with number of data-servers N>=4 and three replicas.
 
 Program arguments and guidelines:
+
 The program should take the arguments in the following format:
 python metaserver.py <port for metaserver>
 python dataserver.py <0 indexed server number> <ports for all dataservers separated by spaces>
